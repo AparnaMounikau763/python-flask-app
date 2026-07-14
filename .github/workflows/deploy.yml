@@ -1,0 +1,23 @@
+name: Python Flask CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+
+    uses: AparnaMounikau763/github-actions-reusable-workflows/.github/workflows/python-ci-cd.yml@main
+
+    with:
+      python-version: "3.12"
+      image-name: "python-flask-app"
+
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      EC2_HOST: ${{ secrets.EC2_HOST }}
+      EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
+      EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
