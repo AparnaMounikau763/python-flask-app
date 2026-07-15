@@ -5,11 +5,14 @@ on:
     branches:
       - main
 
+  workflow_dispatch:
+
 jobs:
-
   pipeline:
-
     uses: AparnaMounikau763/github-actions-reusable-workflows/.github/workflows/python-reusable.yml@main
 
     with:
       python_version: "3.12"
+
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
