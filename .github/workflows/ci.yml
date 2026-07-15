@@ -1,4 +1,4 @@
-name: Python Application CI
+name: Python Application CI/CD
 
 on:
   push:
@@ -9,10 +9,14 @@ on:
 
 jobs:
   pipeline:
+
     uses: AparnaMounikau763/github-actions-reusable-workflows/.github/workflows/python-reusable.yml@main
 
     with:
       python_version: "3.12"
+      image_name: "python-flask-app"
 
     secrets:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
